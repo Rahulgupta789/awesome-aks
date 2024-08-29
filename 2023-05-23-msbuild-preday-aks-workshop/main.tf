@@ -1,9 +1,14 @@
 terraform {
   required_providers {
     azuread = {
-      source  = "hashicorp/azuread"
+      
+source  = "hashicorp/azuread"
       version = "= 2.39.0"
     }
+
+provider "azurerm" {
+  resource_provider_registrations = "none" # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
+  features {}
 
     azurerm = {
       source  = "hashicorp/azurerm"
